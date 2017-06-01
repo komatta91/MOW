@@ -1,0 +1,7 @@
+Since 'R Language Support' v1.0.5 plugin for IntelliJ  has problems with indexing 'base' and 'tools' packets, this dir
+contains whatever got spit out by the manual indexing process, as it was described here:
+http://holgerbrandl.github.io/r4intellij/faq.html#r4intellij-fails-to-index-package-xy-what-canshould-i-do
+
+Both files should be copied into 'r_skeletons' dir in External Libraries element of the IntelliJ project structure.
+
+Until plugin will be fixed, code completion for 'base' and 'tools' packet should be considered incomplete.

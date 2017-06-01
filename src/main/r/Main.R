@@ -1,9 +1,5 @@
-# Title     : TODO
-# Objective : TODO
-# Created by: MrRadziu
-# Created on: 2017-06-01
+library(foreign)
 
-a <- c(1, 2)
-b <- c(2, 3)
+MyData <- read.arff(file="../resources/1year.arff")
 
-writeLines(paste(a*b))
+print(MyData[1,])

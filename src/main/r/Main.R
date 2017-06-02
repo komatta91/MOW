@@ -6,5 +6,34 @@ colnames(MyData) <- read.csv(file="../resources/attributes.csv", sep=",", header
 unmanaged <- MyData[,1:ncol(MyData)-1]
 managed <- MyData
 
-print(unmanaged[1,])
+print(managed)
 
+library(mclust)
+
+max = 500
+
+x1 = 1:max
+y1 = 0
+
+#plot( x1, managed[1:max, 1] )
+#y1 <- managed[1:max, 1]
+
+
+i <- 1
+j <- 2
+
+mix = matrix(nrow = max, ncol = ncol(managed)+1)
+mix[,1] = c(x1)
+while (i <= ncol(managed)) {
+    mix[,j] = c(managed[1:max, i])
+    i <- i + 1
+    j <- j + 1
+}
+
+print(mix)
+
+
+
+#mixclust = Mclust(mix)
+
+#plot(mixclust, data = mix)

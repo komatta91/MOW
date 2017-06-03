@@ -3,7 +3,7 @@
 # Created by: MrRadziu
 # Created on: 2017-06-03
 
-emFunction1 <- function(dataset, config) {
+emFunction1 <- function(dataset, labels) {
 
     library(EMCluster)
 
@@ -31,7 +31,7 @@ emFunction1 <- function(dataset, config) {
 
     print(mix)
 
-    mixclust = em.EM(mix)
+    mixclust = em.EM(mix, lab=labels, nclass=length(labels))
 
     print(mixclust)
 

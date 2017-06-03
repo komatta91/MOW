@@ -8,9 +8,10 @@ colnames(MyData) <- read.csv(file="../resources/attributes.csv", sep=",", header
 
 unmanaged <- MyData[,1:ncol(MyData)-1]
 managed <- MyData
+labels <- c(MyData[,'CLASSIFICATION'])
 
 source("EM.R")
-em1 = emFunction1(managed)
+em1 = emFunction1(dataset=managed, labels=labels)
 
 
 #plot(em1)

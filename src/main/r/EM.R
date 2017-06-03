@@ -31,7 +31,7 @@ emFunction1 <- function(dataset, labels) {
 
     print(mix)
 
-    mixclust = em.EM(mix, lab=labels, nclass=length(labels))
+    mixclust = em.EM(mix, lab=labels, nclass=length(unique(labels)))
 
     print(mixclust)
 

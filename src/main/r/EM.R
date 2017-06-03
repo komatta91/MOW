@@ -7,8 +7,8 @@ emFunction1 <- function(dataset, labels) {
 
     library(EMCluster)
 
-    max = 500
-    #max = nrow(dataset)
+    #max = 500
+    max = nrow(dataset)
 
     x1 = 1:max
     #y1 = 0
@@ -28,8 +28,10 @@ emFunction1 <- function(dataset, labels) {
         j <- j + 1
     }
 
+    #labels <- c(dataset[,'CLASSIFICATION'])
+    #init.EM(x1, nclass = 2, method = "em.EM", lab=labels)
 
-    print(mix)
+    #print(mix)
 
     mixclust = em.EM(mix, lab=labels, nclass=length(unique(labels)))
 
@@ -37,5 +39,5 @@ emFunction1 <- function(dataset, labels) {
 
     #plot(mixclust, data = mix)
 
-    return(mixclust)
+    #return(mixclust)
 }

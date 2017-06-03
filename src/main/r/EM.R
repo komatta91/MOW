@@ -5,7 +5,7 @@
 
 emFunction1 <- function(dataset, config) {
 
-    library(mclust)
+    library(EMCluster)
 
     max = 500
     #max = nrow(dataset)
@@ -31,7 +31,7 @@ emFunction1 <- function(dataset, config) {
 
     print(mix)
 
-    mixclust = Mclust(mix)
+    mixclust = em.EM(mix)
 
     print(mixclust)
 

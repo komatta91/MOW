@@ -10,12 +10,13 @@ print(managed)
 
 library(mclust)
 
-max = 500
+#max = 500
+max = nrow(MyData)
 
 x1 = 1:max
 y1 = 0
 
-#plot( x1, managed[1:max, 1] )
+plot( x1, managed[1:max, 1] )
 #y1 <- managed[1:max, 1]
 
 
@@ -30,10 +31,12 @@ while (i <= ncol(managed)) {
     j <- j + 1
 }
 
+
 print(mix)
 
 
+mixclust = Mclust(mix)
 
-#mixclust = Mclust(mix)
+print(mixclust)
 
 #plot(mixclust, data = mix)

@@ -3,6 +3,8 @@
 # Created by: MrRadziu
 # Created on: 2017-06-03
 
+library(parallel)
+
 ## used to calculate maximum possible nodes for given tree height
 max_nodes <- function(l, b=2) (b ^ (l) - 1) + b ^ l
 

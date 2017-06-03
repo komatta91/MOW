@@ -159,7 +159,7 @@ iForest <- function(X, nt=100, phi=256, seed=1234, multicore=FALSE) {
 }
 
 #' @export
-print.iForest <- function(x, ...) {
-    txt = sprintf("Isolation Forest with %d Trees and Max Depth of %d", x$nTrees, x$l)
-    cat(txt)
-}
+#print.iForest <- function(x, ...) {
+#    txt = sprintf("Isolation Forest with %d Trees and Max Depth of %d", x$nTrees, x$l)
+#    cat(txt)
+#}

@@ -17,7 +17,11 @@ ograniczony <- unmanaged[6500:7000,]
 #em1 = emFunction1(dataset=unmanaged, labels=labels)
 
 source("IsolationForest.R")
-isolationForest <- iForest(X=ograniczony, nt=10, phi=500, multicore=FALSE)
+isolationForest <- iForest(X=unmanaged, nt=10, phi=700, multicore=FALSE)
+
+#print(isolationForest$nTrees)
+#print(isolationForest$l)
+
 print(isolationForest)
 
 

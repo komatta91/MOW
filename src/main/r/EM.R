@@ -33,9 +33,11 @@ emFunction1 <- function(dataset, labels) {
 
     #print(mix)
 
-    mixclust = em.EM(mix, lab=labels, nclass=length(unique(labels)))
+    mixclust1 = em.EM(mix, lab=labels, nclass=length(unique(labels)))
+    #mixclust2 = rand.EM(mix, lab=labels, nclass=length(unique(labels)))
 
-    print(mixclust)
+    print(mixclust1)
+    #print(mixclust2)
 
     #plot(mixclust, data = mix)
 

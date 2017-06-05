@@ -3,19 +3,23 @@ library(foreign)
 
 
 AllTheData <- list(
-    read.arff(file="../resources/polishcompanies/1year.arff"),
-    read.arff(file="../resources/polishcompanies/2year.arff"),
-    read.arff(file="../resources/polishcompanies/3year.arff"),
-    read.arff(file="../resources/polishcompanies/4year.arff"),
-    read.arff(file="../resources/polishcompanies/5year.arff"),
-    read.csv(file="../resources/dota2/dota2Test.csv", sep=",", header=FALSE),
-    read.csv(file="../resources/dota2/dota2Train.csv", sep=",", header=FALSE)
+    list(read.arff(file="../resources/polishcompanies/1year.arff"), function(data) ncol(data)),
+    list(read.arff(file="../resources/polishcompanies/2year.arff"), function(data) ncol(data)),
+    list(read.arff(file="../resources/polishcompanies/3year.arff"), function(data) ncol(data)),
+    list(read.arff(file="../resources/polishcompanies/4year.arff"), function(data) ncol(data)),
+    list(read.arff(file="../resources/polishcompanies/5year.arff"), function(data) ncol(data)),
+    list(read.csv(file="../resources/dota2/dota2Test.csv", sep=",", header=FALSE), function(data) 1),
+    list(read.csv(file="../resources/dota2/dota2Train.csv", sep=",", header=FALSE), function(data) 1)
 )
 
 lapply(AllTheData, function(Data){
-    unmanaged <- Data[,1:ncol(Data)-1]
-    managed <- Data
-    labels <- c(Data[,ncol(Data)])
+    DataTable <- Data[[1]]
+    labelcol <- Data[[2]](DataTable)
+    datacols <- seq.int(1, ncol(DataTable))
+    datacols <- datacols [! datacols %in% labelcol]
+    unmanaged <- DataTable[,datacols]
+    managed <- DataTable
+    labels <- c(DataTable[,labelcol])
 
     #source("EM.R")
     #em1 = emFunction1(dataset=unmanaged, labels=labels)
